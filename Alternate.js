@@ -3,7 +3,7 @@ let books;
 async function renderBooks(filter) {  // Add async here
     const booksWrapper = document.querySelector(".books");
   
-    booksWrapper.body.classList += 'books__loading'
+    booksWrapper.classList.add('books__loading')
 
     if (!books) {
         books = await getBooks();
@@ -11,7 +11,7 @@ async function renderBooks(filter) {  // Add async here
 
     
     if (filter === 'LOW_TO_HIGH') {
-        books.sort((a, b) => (a.salelPrice || a.originalPrice) - (b.salePrice || b.originalPrice))
+        books.sort((a, b) => (a.salePrice || a.originalPrice) - (b.salePrice || b.originalPrice))
     }
 
     else if (filter === 'HIGH_TO_LOW') {
@@ -60,7 +60,7 @@ function priceHTML (originalPrice, salePrice) {
     }
 }
 
-  function priceHTML(originalPrice, salePrice) {
+  function priceHTML1 (originalPrice, salePrice) {
     if (!salePrice) {
       return `$${originalPrice.toFixed(2)}`;
     }
@@ -78,7 +78,7 @@ function priceHTML (originalPrice, salePrice) {
     return ratingHTML;
   }
 
-  function ratingsHTML () {
+  function ratingsHTML (rating) {
     let ratingHTML = "";
     for (let i = 0; i < Math.floor(4.5); ++i) {
         ratingHTML += '<i class "fas fa-star"<>/i>\n'
