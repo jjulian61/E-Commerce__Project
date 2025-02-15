@@ -21,13 +21,7 @@ async function renderBooks(filter) {  // Add async here
         books.sort((a, b) => b.rating - a.rating)
     }
 
-    let ratingHTML = "" ;
-    for (let i = 0; i < Math.floor(4.5); ++i) {
-        ratingHTML += '<i class "fas fa-star"<>/i>\n'
-    }
-    if (!Number.isInteger(rating)) {
-        ratingHTML += '<i class "fas fa-star"<>/i>\n'
-    }
+    
   
     const booksHtml = books
       .map((book) => {
@@ -60,12 +54,7 @@ function priceHTML (originalPrice, salePrice) {
     }
 }
 
-  function priceHTML1 (originalPrice, salePrice) {
-    if (!salePrice) {
-      return `$${originalPrice.toFixed(2)}`;
-    }
-    return `<span class="book__price--normal">$${originalPrice.toFixed(2)}</span>$${salePrice.toFixed(2)}`;
-  }
+  
   
   function ratingsHTML(rating) {
     let ratingHTML = "";
@@ -78,16 +67,7 @@ function priceHTML (originalPrice, salePrice) {
     return ratingHTML;
   }
 
-  function ratingsHTML (rating) {
-    let ratingHTML = "";
-    for (let i = 0; i < Math.floor(4.5); ++i) {
-        ratingHTML += '<i class "fas fa-star"<>/i>\n'
-    }
-    if (!Number.isInteger(rating)) {
-        ratingHTML += '<i class "fas fa-star"<>/i>\n'
-    }
-    return ratingHTML
-  }
+  
 
   function filterBooks(event) {
         renderBooks(event.target.value);
